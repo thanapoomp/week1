@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 
 namespace week1.Controllers
@@ -25,6 +26,13 @@ namespace week1.Controllers
         public IActionResult Create(int id, string name)
         {
             var result = id.ToString() + " " + name;
+            return Ok(result);
+        }
+
+        [HttpGet("Now")]
+        public IActionResult GetNow()
+        {
+            var result = DateTime.Now;
             return Ok(result);
         }
 

@@ -19,6 +19,8 @@ namespace week1
             CreateMap<RoleDtoAdd, Role>()
                 .ForMember(x => x.Name, x => x.MapFrom(x => x.RoleName)); ;
             CreateMap<UserRole, UserRoleDto>();
+
+            CreateMap<Customer,CustomerDTO_ToReturn>().ReverseMap();
         }
     }
 }

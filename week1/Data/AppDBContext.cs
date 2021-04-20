@@ -38,5 +38,7 @@ namespace week1.Data
         public DbSet<Role> Roles { get; set; }
 
         public DbSet<UserRole> UserRoles { get; set; }
+
+        public DbSet<Book> Books { get; set; }
     }
 }

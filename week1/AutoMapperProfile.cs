@@ -21,6 +21,8 @@ namespace week1
             CreateMap<UserRole, UserRoleDto>();
 
             CreateMap<Customer,CustomerDTO_ToReturn>().ReverseMap();
+
+            CreateMap<Book,BookDTO_ToReturn>().ReverseMap();
         }
     }
 }

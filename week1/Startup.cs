@@ -21,6 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using week1.Services.Book;
 
 namespace week1
 {
@@ -88,6 +89,7 @@ namespace week1
             //------Service------
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IBookService, BookService>();
             //------End: Service------
 
             AddFormatters(services);

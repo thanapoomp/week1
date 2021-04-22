@@ -51,5 +51,11 @@ namespace week1.Services.Book
                 return ResponseResult.Failure<BookDTO_ToReturn>(ex.Message);
             }
         }
+
+        public Task<ServiceResponse<PaginationResultDto>> SearchPaginate(PaginationDto pagination)
+        {
+            
+            throw new NotImplementedException();
+        }
     }
 }

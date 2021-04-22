@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using week1.DTOs;
 using week1.Models;
@@ -11,6 +12,7 @@ namespace week1.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
@@ -46,6 +48,7 @@ namespace week1.Controllers
         }
 
         [HttpGet("Now")]
+        [Authorize(Roles="Manager")]
         public IActionResult GetNow()
         {
             var result = DateTime.Now;
@@ -104,6 +107,13 @@ namespace week1.Controllers
 
 
             return Ok(searchResult);
+        }
+
+         [HttpGet("SearchBooksPaginate")]
+        public IActionResult SearchBooksPaginate(string searchText)
+        {
+
+            return Ok();
         }
 
     }

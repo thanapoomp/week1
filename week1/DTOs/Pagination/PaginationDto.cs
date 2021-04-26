@@ -23,5 +23,10 @@ namespace week1.DTOs
                 recordsPerPage = (value > maxRecordsPerPage) ? maxRecordsPerPage : value;
             }
         }
+
+        public string OrderingField { get; set; }
+
+        public bool AscendingOrder { get; set; } = true;
+
     }
 }

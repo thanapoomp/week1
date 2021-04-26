@@ -12,7 +12,7 @@ namespace week1.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    // [Authorize]
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
@@ -109,12 +109,19 @@ namespace week1.Controllers
             return Ok(searchResult);
         }
 
-         [HttpGet("SearchBooksPaginate")]
-        public IActionResult SearchBooksPaginate(string searchText)
+         [HttpPost("SearchBooksPaginate")]
+        public async Task<IActionResult> SearchBooksPaginate( BookDTO_Filter filter)
         {
-
-            return Ok();
+            var result = await _bookService.SearchPaginate(filter);
+            return Ok(result);
         }
+
+        // [HttpGet("SearchBooksPaginate")]
+        // public async Task<IActionResult> SearchBooksPaginate([FromQuery] BookDTO_Filter filter)
+        // {
+        //     var result = await _bookService.SearchPaginate(filter);
+        //     return Ok(result);
+        // }
 
     }
 }
